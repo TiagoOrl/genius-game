@@ -26,28 +26,28 @@ body {
 }
 
 .blue {
-    background-color: rgb(0, 153, 255);
-    grid-area: rgb(0, 153, 255);
+    background-color: rgb(0, 91, 151);
+    grid-area: blue;
     border-top-left-radius: 100%;
     
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: rgb(150, 150, 18);
     grid-area: yellow;
     border-top-right-radius: 100%;
     
 }
 
 .green {
-    background-color: green;
+    background-color: rgb(6, 110, 6);
     grid-area: green;
     border-bottom-right-radius: 100%;
     
 }
 
 .red {
-    background-color: red;
+    background-color: rgb(131, 14, 14);
     grid-area: red;
     border-bottom-left-radius: 100%;
     

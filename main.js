@@ -12,8 +12,8 @@ let score = 0
 
 const blue = document.querySelector('.blue')
 const red = document.querySelector('.red')
-const green = document.querySelector('green')
-const yellow = document.querySelector('yellow')
+const green = document.querySelector('.green')
+const yellow = document.querySelector('.yellow')
 
 
 function shufferOrder() {
@@ -32,11 +32,11 @@ function lightColor(elem, number) {
     number *= 500
     setTimeout(() => {
         elem.classList.add('selected')
-    }, number - 100);
+    }, number);
 
     setTimeout(() => {
         elem.classList.remove('selected')
-    }, time - 100);
+    });
 }
 
 function checkOrder() {
@@ -48,6 +48,67 @@ function checkOrder() {
     }
 
     if (clickedOrder.length == order.length) {
-        alert(`${score} points`)
+        alert(`${score} points\n Next level...`)
+        nextLevel()
     }
 }
+
+
+function nextLevel() {
+
+}
+
+
+function click(color) {
+    clickedOrder[clickedOrder.length] = color
+    createColorElement(color).classList.add('selected')
+
+    setTimeout(() => {
+        createColorElement(color).classList.remove('selected')
+        checkOrder()
+    }, 250);
+
+    
+}
+
+function createColorElement(color) {
+    if (color == 0) {
+        return green
+    }
+
+    if (color === 1) {
+        return red
+    }
+
+    if (color === 2) {
+        return yellow
+    }
+
+    if (color === 3)
+        return blue
+}
+
+function nextLevel() {
+    score++
+    shufferOrder()
+}
+
+function lose() {
+    alert(`You Lose: ${score} points`)
+    order = []
+    clickedOrder = []
+
+    playGame()
+}
+
+function playGame() {
+    score = 0
+    nextLevel()
+}
+
+green.onclick = () => click(0)
+red.onclick = () => click(1)
+yellow.onclick = () => click(2)
+blue.onclick = () => click(3)
+
+playGame()
